@@ -43,7 +43,7 @@ const UpdateUser = () => {
                 if ("errors" in data) {
                     for (let field in data.errors) {
                         const validationError = data.errors[field];
-                        errorMessages.push(field+" "+validationError);
+                        errorMessages.push(field + " " + validationError);
                     }
                 }
                 setErrors(errorMessages);
@@ -53,10 +53,12 @@ const UpdateUser = () => {
     }
     console.log(errors)
     return (
-        <div className="d-flex justify-content-center align-items-center flex-column">
-            <h3 className="mt-5">Edit this user</h3>
-            <Errors msgs={errors} />
-            <Form subject={user} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <div className="d-flex justify-content-center">
+            <div className="card m-5 col-xl-6">
+                <h3 className="card-header">Edit this user</h3>
+                <Errors msgs={errors} />
+                <Form subject={user} handleChange={handleChange} handleSubmit={handleSubmit} />
+            </div>
         </div>
     )
 }

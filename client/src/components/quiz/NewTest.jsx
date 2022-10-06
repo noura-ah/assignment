@@ -64,13 +64,15 @@ const NewTest = () => {
                 setErrors(errorMessages);
             })
     }
-    
+
     return (
 
-        <div className="d-flex justify-content-center align-items-center flex-column">
-            <h3 className="mt-5">Add a new Test</h3>
-            <Errors msgs={errors} />
-            <TestForm subject={test} questions={questions} setQuestions={setQuestions} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <div className="d-flex justify-content-center">
+            <div className="card m-5 col-xl-10">
+                <h3 className="card-header">Add a new Test</h3>
+                <Errors msgs={errors} />
+                <TestForm subject={test} questions={questions} setQuestions={setQuestions} handleChange={handleChange} handleSubmit={handleSubmit} />
+            </div>
         </div>
 
     )

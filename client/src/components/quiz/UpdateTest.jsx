@@ -49,7 +49,7 @@ const UpdateTest = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         test.questions_attributes = questions
-        console.log(test,questions)
+        console.log(test, questions)
         axios.put(`http://127.0.0.1:3000/api/tests/${id}`, test)
             .then(res => {
                 setIsCreated(true)
@@ -62,7 +62,7 @@ const UpdateTest = () => {
                 if ("errors" in data) {
                     for (let field in data.errors) {
                         const validationError = data.errors[field];
-                        errorMessages.push(field+" "+validationError);
+                        errorMessages.push(field + " " + validationError);
                     }
                 }
                 setErrors(errorMessages);
@@ -74,10 +74,12 @@ const UpdateTest = () => {
 
     return (
 
-        <div className="d-flex justify-content-center align-items-center flex-column">
-            <h3 className="mt-5">Update Test</h3>
-            <Errors msgs={errors} />
-            <TestForm subject={test} questions={questions} setQuestions={setQuestions} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <div className="d-flex justify-content-center">
+            <div className="card m-5 col-xl-10">
+                <h3 className="card-header">Update Test</h3>
+                <Errors msgs={errors} />
+                <TestForm subject={test} questions={questions} setQuestions={setQuestions} handleChange={handleChange} handleSubmit={handleSubmit} />
+            </div>
         </div>
 
     )

@@ -81,23 +81,23 @@ const TestForm = (props) => {
     return (<>
 
         <form id="form1" className="form container px-5" onSubmit={handleSubmit}>
-            <div className="d-flex align-items-center px-5 mt-4">
-                <label className="form-label">Name*:</label>
+            <div className="mt-4">
+                <label className="form-label">Test Name*:</label>
                 <input className="form-control" value={subject.name} name="name" onChange={handleChange} />
             </div>
-            <div className="d-flex align-items-center px-5 mt-4">
+            <div className="mt-4">
                 <label className="form-label">Description:</label>
-                <input className="form-control" value={subject.description} name="description" onChange={handleChange} />
+                <textarea className="form-control" value={subject.description} name="description" onChange={handleChange} />
             </div>
-            <hr />
+            
             {questions.map((item, i) => {
                 return (
-                    <div key={i} className="px-5 mt-4">
+                    <div key={i} className="card mt-5">
                         <Question subject={item} id={i} handleChange={handleChangeQ} handleDelete={handleDelete} />
 
                         {item.answers_attributes && item.answers_attributes.map((op, i_answers) => {
                             return (
-                                <div key={i_answers} className="px-5 mt-4 d-flex align-items-center ">
+                                <div key={i_answers} className="px-5 my-3 d-flex align-items-center">
                                     <Option subject={op} id={i_answers} id_Q={i} handleChange={(e) => handleChangeOptions(e, i)} handleDelete={handleDelete} />
                                     <div className="form-check mx-3">
                                         <label className="form-check-label">Correct answer</label>
@@ -113,9 +113,9 @@ const TestForm = (props) => {
             })}
 
             <div className="d-flex align-items-center justify-content-center mt-3">
-                <input form="form1" className="btn btn-light m-1" value={value} type="submit" />
-                <Link className="btn btn-light m-1" to="/tests">Back</Link>
-                <button type="button" className="btn btn-light m-1" onClick={addQuestion}>Add Question</button>
+                <input form="form1" className="btn btn-dark m-1" value={value} type="submit" />
+                <Link className="btn btn-dark m-1" to="/tests">Back</Link>
+                <button type="button" className="btn btn-dark m-1" onClick={addQuestion}>Add Question</button>
             </div>
 
         </form>
