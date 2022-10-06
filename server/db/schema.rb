@@ -20,12 +20,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_070327) do
   end
 
   create_table "questions", force: :cascade do |t|
+    t.string "label", null: false
     t.string "description"
+    t.integer "correct_ans"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "test_id"
-    t.string "label", null: false
-    t.string "correct_ans"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
